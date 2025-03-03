@@ -1,0 +1,15 @@
+services:
+  database:
+    image: postgres:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=mysql
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+    ports:
+      - 5432:5432
+    networks:
+      - default
+
+volumes:
+  postgres_data:
