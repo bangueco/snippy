@@ -1,15 +1,17 @@
 services:
   database:
-    image: postgres:latest
+    image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=mysql
       - MYSQL_DATABASE=mysql
       - MYSQL_USER=mysql
       - MYSQL_PASSWORD=mysql
     ports:
-      - 5432:5432
+      - 3306:3306 # MySQL default port
     networks:
       - default
+    volumes:
+      - mysql_data:/var/lib/mysql # Mount volume to persist data
 
 volumes:
-  postgres_data:
+  mysql_data: # Renamed volume to match MySQL
